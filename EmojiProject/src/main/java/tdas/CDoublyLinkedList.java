@@ -90,7 +90,7 @@ public class CDoublyLinkedList<E> {
         return numElements;
     }
 
-    protected void find(E target) // Searches list for an occurrence of an element. If successful, sets instance variables
+    protected void findElementIfExists(E target) // Searches list for an occurrence of an element. If successful, sets instance variables
     // found to true, location to node containing the element, and previous
     // to the node that links to location. If not successful, sets found to false.
     {
@@ -142,7 +142,7 @@ public class CDoublyLinkedList<E> {
     public boolean contains(E element) // Returns true if this list contains an element e such that 
     // e.equals(element), otherwise returns false.
     {
-        find(element);
+        findElementIfExists(element);
         return found;
     }
 
@@ -168,7 +168,7 @@ public class CDoublyLinkedList<E> {
     public E get(E data) // Returns an element e from this list such that e.equals(element);
     // if no such element exists, returns null.
     {
-        find(data);
+        findElementIfExists(data);
         if (found) {
             return location.getContent();
         } else {
@@ -295,7 +295,7 @@ public class CDoublyLinkedList<E> {
     public boolean remove(E element) // Removes an element e from this list such that e.equals(element)
     // and returns true; if no such element exists, returns false.
     {
-        find(element);
+        findElementIfExists(element);
         if (found) {
             if (location == first && size() == 1) //removes the only existing element
             //empties the list
